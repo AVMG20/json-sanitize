@@ -1,0 +1,1853 @@
+[
+  {
+    "id": "flat-customer",
+    "input": "{\"entity_id\":1042,\"email\":\"jan.devries@example.nl\",\"firstname\":\"Jan\",\"lastname\":\"de Vries\",\"telephone\":\"+31 6 12345678\",\"dob\":\"1985-02-14\",\"group\":\"Wholesale\",\"created_at\":\"2024-03-01 12:30:00\"}",
+    "pii": [
+      {
+        "text": "jan.devries@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Jan",
+        "type": "PERSON"
+      },
+      {
+        "text": "de Vries",
+        "type": "PERSON"
+      },
+      {
+        "text": "+31 6 12345678",
+        "type": "PHONE"
+      },
+      {
+        "text": "1985-02-14",
+        "type": "DOB"
+      }
+    ],
+    "keep": [
+      "Wholesale",
+      "2024-03-01 12:30:00"
+    ],
+    "fake": [
+      {
+        "text": "Jan",
+        "type": "PERSON"
+      },
+      {
+        "text": "de Vries",
+        "type": "PERSON"
+      },
+      {
+        "text": "1985-02-14",
+        "type": "DOB"
+      },
+      {
+        "text": "Wholesale",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-03-01 12:30:00",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"entity_id\": 1042,\n  \"email\": \"[EMAIL_1]\",\n  \"firstname\": \"[PERSON_1]\",\n  \"lastname\": \"[PERSON_2]\",\n  \"telephone\": \"[PHONE_1]\",\n  \"dob\": \"[DOB_1]\",\n  \"group\": \"Wholesale\",\n  \"created_at\": \"2024-03-01 12:30:00\"\n}",
+    "rulesChanges": 5,
+    "fakeOutput": "{\n  \"entity_id\": 1042,\n  \"email\": \"[EMAIL_1]\",\n  \"firstname\": \"[PERSON_1]\",\n  \"lastname\": \"[PERSON_2]\",\n  \"telephone\": \"[PHONE_1]\",\n  \"dob\": \"[DOB_1]\",\n  \"group\": \"[PERSON_3]\",\n  \"created_at\": \"2024-03-01 12:30:00\"\n}",
+    "fakeChanges": 6
+  },
+  {
+    "id": "order-nested",
+    "input": "{\"increment_id\":\"000001234\",\"grand_total\":59.95,\"currency\":\"EUR\",\"customer_email\":\"sanne.bakker@example.nl\",\"customer_firstname\":\"Sanne\",\"customer_lastname\":\"Bakker\",\"billing_address\":{\"street\":[\"Kerkstraat 12\"],\"postcode\":\"1012 AB\",\"city\":\"Amsterdam\",\"country_id\":\"NL\",\"telephone\":\"0612345678\"},\"payment\":{\"method\":\"ideal\",\"additional_information\":{\"iban\":\"NL91ABNA0417164300\",\"bank\":\"ABN AMRO\"}},\"items\":[{\"name\":\"Blue Shirt\",\"sku\":\"blue-shirt-m\",\"qty\":1,\"price\":29.95},{\"name\":\"Acme Running Shoes\",\"sku\":\"ACME-RUN-42\",\"qty\":1,\"price\":30}]}",
+    "pii": [
+      {
+        "text": "sanne.bakker@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Sanne",
+        "type": "PERSON"
+      },
+      {
+        "text": "Bakker",
+        "type": "PERSON"
+      },
+      {
+        "text": "Kerkstraat 12",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "1012 AB",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "0612345678",
+        "type": "PHONE"
+      },
+      {
+        "text": "NL91ABNA0417164300",
+        "type": "IBAN"
+      }
+    ],
+    "keep": [
+      "000001234",
+      "Amsterdam",
+      "Blue Shirt",
+      "blue-shirt-m",
+      "Acme Running Shoes",
+      "ACME-RUN-42",
+      "ABN AMRO",
+      "ideal"
+    ],
+    "fake": [
+      {
+        "text": "Sanne",
+        "type": "PERSON"
+      },
+      {
+        "text": "Bakker",
+        "type": "PERSON"
+      },
+      {
+        "text": "Kerkstraat 12",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "1012 AB",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "000001234",
+        "type": "PERSON"
+      },
+      {
+        "text": "Amsterdam",
+        "type": "PERSON"
+      },
+      {
+        "text": "Blue Shirt",
+        "type": "PERSON"
+      },
+      {
+        "text": "blue-shirt-m",
+        "type": "PERSON"
+      },
+      {
+        "text": "Acme Running Shoes",
+        "type": "PERSON"
+      },
+      {
+        "text": "ACME-RUN-42",
+        "type": "PERSON"
+      },
+      {
+        "text": "ABN AMRO",
+        "type": "PERSON"
+      },
+      {
+        "text": "ideal",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"increment_id\": \"000001234\",\n  \"grand_total\": 59.95,\n  \"currency\": \"EUR\",\n  \"customer_email\": \"[EMAIL_1]\",\n  \"customer_firstname\": \"[PERSON_1]\",\n  \"customer_lastname\": \"[PERSON_2]\",\n  \"billing_address\": {\n    \"street\": [\n      \"[ADDRESS_1]\"\n    ],\n    \"postcode\": \"[POSTCODE_1]\",\n    \"city\": \"Amsterdam\",\n    \"country_id\": \"NL\",\n    \"telephone\": \"[PHONE_1]\"\n  },\n  \"payment\": {\n    \"method\": \"ideal\",\n    \"additional_information\": {\n      \"iban\": \"[IBAN_1]\",\n      \"bank\": \"ABN AMRO\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"Blue Shirt\",\n      \"sku\": \"blue-shirt-m\",\n      \"qty\": 1,\n      \"price\": 29.95\n    },\n    {\n      \"name\": \"Acme Running Shoes\",\n      \"sku\": \"ACME-RUN-42\",\n      \"qty\": 1,\n      \"price\": 30\n    }\n  ]\n}",
+    "rulesChanges": 7,
+    "fakeOutput": "{\n  \"increment_id\": \"000001234\",\n  \"grand_total\": 59.95,\n  \"currency\": \"EUR\",\n  \"customer_email\": \"[EMAIL_1]\",\n  \"customer_firstname\": \"[PERSON_1]\",\n  \"customer_lastname\": \"[PERSON_2]\",\n  \"billing_address\": {\n    \"street\": [\n      \"[ADDRESS_1]\"\n    ],\n    \"postcode\": \"[POSTCODE_1]\",\n    \"city\": \"Amsterdam\",\n    \"country_id\": \"NL\",\n    \"telephone\": \"[PHONE_1]\"\n  },\n  \"payment\": {\n    \"method\": \"ideal\",\n    \"additional_information\": {\n      \"iban\": \"[IBAN_1]\",\n      \"bank\": \"[PERSON_3]\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"Blue Shirt\",\n      \"sku\": \"blue-shirt-m\",\n      \"qty\": 1,\n      \"price\": 29.95\n    },\n    {\n      \"name\": \"Acme Running Shoes\",\n      \"sku\": \"ACME-RUN-42\",\n      \"qty\": 1,\n      \"price\": 30\n    }\n  ]\n}",
+    "fakeChanges": 8
+  },
+  {
+    "id": "generic-keys",
+    "input": "{\"fields\":[{\"label\":\"Customer\",\"name\":\"Pieter Jansen\",\"value\":\"pieter.jansen@example.nl\"},{\"label\":\"Product\",\"name\":\"Ergonomic Office Chair\",\"value\":\"CHAIR-ERGO-01\"},{\"label\":\"Store\",\"name\":\"BigBridge Demo Store\",\"value\":\"default\"},{\"label\":\"Contact\",\"name\":\"phone\",\"value\":\"020 555 0142\"}]}",
+    "pii": [
+      {
+        "text": "Pieter Jansen",
+        "type": "PERSON"
+      },
+      {
+        "text": "pieter.jansen@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "020 555 0142",
+        "type": "PHONE"
+      }
+    ],
+    "keep": [
+      "Ergonomic Office Chair",
+      "CHAIR-ERGO-01",
+      "BigBridge Demo Store"
+    ],
+    "fake": [
+      {
+        "text": "Pieter Jansen",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ergonomic Office Chair",
+        "type": "PERSON"
+      },
+      {
+        "text": "CHAIR-ERGO-01",
+        "type": "PERSON"
+      },
+      {
+        "text": "BigBridge Demo Store",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"fields\": [\n    {\n      \"label\": \"Customer\",\n      \"name\": \"Pieter Jansen\",\n      \"value\": \"[EMAIL_1]\"\n    },\n    {\n      \"label\": \"Product\",\n      \"name\": \"Ergonomic Office Chair\",\n      \"value\": \"CHAIR-ERGO-01\"\n    },\n    {\n      \"label\": \"Store\",\n      \"name\": \"BigBridge Demo Store\",\n      \"value\": \"default\"\n    },\n    {\n      \"label\": \"Contact\",\n      \"name\": \"phone\",\n      \"value\": \"[PHONE_1]\"\n    }\n  ]\n}",
+    "rulesChanges": 2,
+    "fakeOutput": "{\n  \"fields\": [\n    {\n      \"label\": \"Customer\",\n      \"name\": \"[PERSON_1]\",\n      \"value\": \"[EMAIL_1]\"\n    },\n    {\n      \"label\": \"Product\",\n      \"name\": \"[PERSON_2]\",\n      \"value\": \"CHAIR-ERGO-01\"\n    },\n    {\n      \"label\": \"Store\",\n      \"name\": \"[PERSON_3]\",\n      \"value\": \"default\"\n    },\n    {\n      \"label\": \"Contact\",\n      \"name\": \"phone\",\n      \"value\": \"[PHONE_1]\"\n    }\n  ]\n}",
+    "fakeChanges": 5
+  },
+  {
+    "id": "deep-nesting",
+    "input": "{\"a\":{\"b\":{\"c\":{\"d\":{\"e\":{\"f\":{\"g\":{\"text\":\"Maria Schmidt\",\"data\":\"maria.schmidt@example.de\",\"meta\":{\"value\":\"+49 30 5550123\",\"note\":\"Warehouse Hamburg\"}}}}}}}},\"version\":\"2.1.0\"}",
+    "pii": [
+      {
+        "text": "Maria Schmidt",
+        "type": "PERSON"
+      },
+      {
+        "text": "maria.schmidt@example.de",
+        "type": "EMAIL"
+      },
+      {
+        "text": "+49 30 5550123",
+        "type": "PHONE"
+      }
+    ],
+    "keep": [
+      "Warehouse Hamburg",
+      "2.1.0"
+    ],
+    "fake": [
+      {
+        "text": "Maria Schmidt",
+        "type": "PERSON"
+      },
+      {
+        "text": "Warehouse Hamburg",
+        "type": "PERSON"
+      },
+      {
+        "text": "2.1.0",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"a\": {\n    \"b\": {\n      \"c\": {\n        \"d\": {\n          \"e\": {\n            \"f\": {\n              \"g\": {\n                \"text\": \"Maria Schmidt\",\n                \"data\": \"[EMAIL_1]\",\n                \"meta\": {\n                  \"value\": \"[PHONE_1]\",\n                  \"note\": \"Warehouse Hamburg\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"version\": \"2.1.0\"\n}",
+    "rulesChanges": 2,
+    "fakeOutput": "{\n  \"a\": {\n    \"b\": {\n      \"c\": {\n        \"d\": {\n          \"e\": {\n            \"f\": {\n              \"g\": {\n                \"text\": \"[PERSON_1]\",\n                \"data\": \"[EMAIL_1]\",\n                \"meta\": {\n                  \"value\": \"[PHONE_1]\",\n                  \"note\": \"[PERSON_2]\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"version\": \"2.1.0\"\n}",
+    "fakeChanges": 4
+  },
+  {
+    "id": "support-ticket",
+    "input": "{\"ticket\":{\"id\":\"TCK-8841\",\"subject\":\"Refund for damaged lamp\",\"status\":\"open\",\"messages\":[{\"from\":\"customer\",\"body\":\"Hi, my name is Emma Wilson and my lamp arrived broken. You can reach me at emma.wilson@example.com.\"},{\"from\":\"agent\",\"body\":\"Hello Emma, sorry to hear that. I will ask Tom Becker from logistics to check the shipment.\"},{\"from\":\"customer\",\"body\":\"Thanks. Emma here again, I live at 14 Station Road, Leeds so a courier pickup works.\"}]}}",
+    "pii": [
+      {
+        "text": "Emma Wilson",
+        "type": "PERSON"
+      },
+      {
+        "text": "emma.wilson@example.com",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Tom Becker",
+        "type": "PERSON"
+      },
+      {
+        "text": "14 Station Road",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "Emma",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "TCK-8841",
+      "Refund for damaged lamp",
+      "Leeds"
+    ],
+    "fake": [
+      {
+        "text": "Emma Wilson",
+        "type": "PERSON"
+      },
+      {
+        "text": "Tom Becker",
+        "type": "PERSON"
+      },
+      {
+        "text": "14 Station Road",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "Emma",
+        "type": "PERSON"
+      },
+      {
+        "text": "TCK-8841",
+        "type": "PERSON"
+      },
+      {
+        "text": "Refund for damaged lamp",
+        "type": "PERSON"
+      },
+      {
+        "text": "Leeds",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"ticket\": {\n    \"id\": \"TCK-8841\",\n    \"subject\": \"Refund for damaged lamp\",\n    \"status\": \"open\",\n    \"messages\": [\n      {\n        \"from\": \"customer\",\n        \"body\": \"Hi, my name is Emma Wilson and my lamp arrived broken. You can reach me at [EMAIL_1].\"\n      },\n      {\n        \"from\": \"agent\",\n        \"body\": \"Hello Emma, sorry to hear that. I will ask Tom Becker from logistics to check the shipment.\"\n      },\n      {\n        \"from\": \"customer\",\n        \"body\": \"Thanks. Emma here again, I live at [ADDRESS_1], Leeds so a courier pickup works.\"\n      }\n    ]\n  }\n}",
+    "rulesChanges": 2,
+    "fakeOutput": "{\n  \"ticket\": {\n    \"id\": \"TCK-8841\",\n    \"subject\": \"Refund for damaged lamp\",\n    \"status\": \"open\",\n    \"messages\": [\n      {\n        \"from\": \"customer\",\n        \"body\": \"Hi, my name is [PERSON_1] and my lamp arrived broken. You can reach me at [EMAIL_1].\"\n      },\n      {\n        \"from\": \"agent\",\n        \"body\": \"Hello [PERSON_3], sorry to hear that. I will ask [PERSON_2] from logistics to check the shipment.\"\n      },\n      {\n        \"from\": \"customer\",\n        \"body\": \"Thanks. [PERSON_3] here again, I live at [ADDRESS_1], [PERSON_4] so a courier pickup works.\"\n      }\n    ]\n  }\n}",
+    "fakeChanges": 3
+  },
+  {
+    "id": "dutch-notes",
+    "input": "{\"order_id\":\"000005678\",\"comments\":[\"Klant Lisa van den Berg wil de bestelling graag bij de buren laten bezorgen.\",\"Bezorgadres: Wilhelminastraat 45, 3511 CD Utrecht\",\"Lisa belde om 14:00, bereikbaar via 06-55501234.\",\"Verzending met PostNL, track and trace 3SABCD123456789.\"]}",
+    "pii": [
+      {
+        "text": "Lisa van den Berg",
+        "type": "PERSON"
+      },
+      {
+        "text": "Wilhelminastraat 45",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3511 CD",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "06-55501234",
+        "type": "PHONE"
+      },
+      {
+        "text": "Lisa",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "000005678",
+      "PostNL",
+      "3SABCD123456789",
+      "Utrecht"
+    ],
+    "fake": [
+      {
+        "text": "Lisa van den Berg",
+        "type": "PERSON"
+      },
+      {
+        "text": "Wilhelminastraat 45",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3511 CD",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Lisa",
+        "type": "PERSON"
+      },
+      {
+        "text": "000005678",
+        "type": "PERSON"
+      },
+      {
+        "text": "PostNL",
+        "type": "PERSON"
+      },
+      {
+        "text": "3SABCD123456789",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"order_id\": \"000005678\",\n  \"comments\": [\n    \"Klant Lisa van den Berg wil de bestelling graag bij de buren laten bezorgen.\",\n    \"Bezorgadres: [ADDRESS_1], [POSTCODE_1] Utrecht\",\n    \"Lisa belde om 14:00, bereikbaar via [PHONE_1].\",\n    \"Verzending met PostNL, track and trace 3SABCD123456789.\"\n  ]\n}",
+    "rulesChanges": 2,
+    "fakeOutput": "{\n  \"order_id\": \"000005678\",\n  \"comments\": [\n    \"Klant [PERSON_1] wil de bestelling graag bij de buren laten bezorgen.\",\n    \"Bezorgadres: [ADDRESS_1], [POSTCODE_1] [PERSON_2]\",\n    \"[PERSON_3] belde om 14:00, bereikbaar via [PHONE_1].\",\n    \"Verzending met [PERSON_4], track and trace 3SABCD123456789.\"\n  ]\n}",
+    "fakeChanges": 4
+  },
+  {
+    "id": "german-chat",
+    "input": "{\"chat\":{\"channel\":\"live-chat\",\"transcript\":[{\"ts\":\"2024-05-02T09:15:00Z\",\"text\":\"Guten Tag, ich bin Katrin Vogel. Meine Bestellung ist noch nicht angekommen.\"},{\"ts\":\"2024-05-02T09:16:10Z\",\"text\":\"Hallo Frau Vogel, wir prüfen das. Ist die Lieferadresse Lindenallee 7, 10115 Berlin korrekt?\"},{\"ts\":\"2024-05-02T09:17:30Z\",\"text\":\"Ja. Schicken Sie die Bestätigung bitte an katrin.vogel@example.de.\"}]}}",
+    "pii": [
+      {
+        "text": "Katrin Vogel",
+        "type": "PERSON"
+      },
+      {
+        "text": "Vogel",
+        "type": "PERSON"
+      },
+      {
+        "text": "Lindenallee 7",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "10115",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "katrin.vogel@example.de",
+        "type": "EMAIL"
+      }
+    ],
+    "keep": [
+      "live-chat",
+      "Berlin",
+      "2024-05-02T09:15:00Z"
+    ],
+    "fake": [
+      {
+        "text": "Katrin Vogel",
+        "type": "PERSON"
+      },
+      {
+        "text": "Vogel",
+        "type": "PERSON"
+      },
+      {
+        "text": "Lindenallee 7",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "10115",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "live-chat",
+        "type": "PERSON"
+      },
+      {
+        "text": "Berlin",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-05-02T09:15:00Z",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"chat\": {\n    \"channel\": \"live-chat\",\n    \"transcript\": [\n      {\n        \"ts\": \"2024-05-02T09:15:00Z\",\n        \"text\": \"Guten Tag, ich bin Katrin Vogel. Meine Bestellung ist noch nicht angekommen.\"\n      },\n      {\n        \"ts\": \"2024-05-02T09:16:10Z\",\n        \"text\": \"Hallo Frau Vogel, wir prüfen das. Ist die Lieferadresse [ADDRESS_1], 10115 Berlin korrekt?\"\n      },\n      {\n        \"ts\": \"2024-05-02T09:17:30Z\",\n        \"text\": \"Ja. Schicken Sie die Bestätigung bitte an [EMAIL_1].\"\n      }\n    ]\n  }\n}",
+    "rulesChanges": 2,
+    "fakeOutput": "{\n  \"chat\": {\n    \"channel\": \"live-chat\",\n    \"transcript\": [\n      {\n        \"ts\": \"2024-05-02T09:15:00Z\",\n        \"text\": \"Guten Tag, ich bin [PERSON_1]. Meine Bestellung ist noch nicht angekommen.\"\n      },\n      {\n        \"ts\": \"2024-05-02T09:16:10Z\",\n        \"text\": \"Hallo Frau [PERSON_3], wir prüfen das. Ist die Lieferadresse [ADDRESS_1], [POSTCODE_1] [PERSON_2] korrekt?\"\n      },\n      {\n        \"ts\": \"2024-05-02T09:17:30Z\",\n        \"text\": \"Ja. Schicken Sie die Bestätigung bitte an [EMAIL_1].\"\n      }\n    ]\n  }\n}",
+    "fakeChanges": 3
+  },
+  {
+    "id": "server-log",
+    "input": "{\"host\":\"web-01\",\"lines\":[\"192.0.2.44 - - [10/Oct/2024:13:55:36 +0000] \\\"GET /checkout/cart HTTP/1.1\\\" 200 5123\",\"2024-10-10 13:56:01 INFO login ok user=piet.hendriks@example.nl ip=203.0.113.9\",\"2024-10-10 13:57:12 WARN payment failed for card 4111 1111 1111 1111 order 000009876\",\"2024-10-10 13:58:40 INFO redirect to https://www.example.com/products/blue-shirt\"]}",
+    "pii": [
+      {
+        "text": "192.0.2.44",
+        "type": "IP"
+      },
+      {
+        "text": "piet.hendriks@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "203.0.113.9",
+        "type": "IP"
+      },
+      {
+        "text": "4111 1111 1111 1111",
+        "type": "CARD"
+      }
+    ],
+    "keep": [
+      "web-01",
+      "/checkout/cart",
+      "000009876",
+      "https://www.example.com/products/blue-shirt"
+    ],
+    "fake": [
+      {
+        "text": "web-01",
+        "type": "PERSON"
+      },
+      {
+        "text": "/checkout/cart",
+        "type": "PERSON"
+      },
+      {
+        "text": "000009876",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://www.example.com/products/blue-shirt",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"host\": \"web-01\",\n  \"lines\": [\n    \"[IP_1] - - [10/Oct/2024:13:55:36 +0000] \\\"GET /checkout/cart HTTP/1.1\\\" 200 5123\",\n    \"2024-10-10 13:56:01 INFO login ok user=[EMAIL_1] ip=[IP_2]\",\n    \"2024-10-10 13:57:12 WARN payment failed for card [CARD_1] order 000009876\",\n    \"2024-10-10 13:58:40 INFO redirect to https://www.example.com/products/blue-shirt\"\n  ]\n}",
+    "rulesChanges": 3,
+    "fakeOutput": "{\n  \"host\": \"web-01\",\n  \"lines\": [\n    \"[IP_1] - - [10/Oct/2024:13:55:36 +0000] \\\"GET /checkout/cart HTTP/1.1\\\" 200 5123\",\n    \"2024-10-10 13:56:01 INFO login ok user=[EMAIL_1] ip=[IP_2]\",\n    \"2024-10-10 13:57:12 WARN payment failed for card [CARD_1] order 000009876\",\n    \"2024-10-10 13:58:40 INFO redirect to https://www.example.com/products/blue-shirt\"\n  ]\n}",
+    "fakeChanges": 3
+  },
+  {
+    "id": "top-level-array",
+    "input": "[{\"id\":1,\"name\":\"Anna de Groot\",\"company\":\"Northwind Traders\",\"email\":\"anna@example.nl\",\"city\":\"Rotterdam\"},{\"id\":2,\"name\":\"Mark Visser\",\"company\":\"Contoso BV\",\"email\":\"mark@example.nl\",\"city\":\"Den Haag\"}]",
+    "pii": [
+      {
+        "text": "Anna de Groot",
+        "type": "PERSON"
+      },
+      {
+        "text": "anna@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Mark Visser",
+        "type": "PERSON"
+      },
+      {
+        "text": "mark@example.nl",
+        "type": "EMAIL"
+      }
+    ],
+    "keep": [
+      "Northwind Traders",
+      "Contoso BV",
+      "Rotterdam",
+      "Den Haag"
+    ],
+    "fake": [
+      {
+        "text": "Anna de Groot",
+        "type": "PERSON"
+      },
+      {
+        "text": "Mark Visser",
+        "type": "PERSON"
+      },
+      {
+        "text": "Northwind Traders",
+        "type": "PERSON"
+      },
+      {
+        "text": "Contoso BV",
+        "type": "PERSON"
+      },
+      {
+        "text": "Rotterdam",
+        "type": "PERSON"
+      },
+      {
+        "text": "Den Haag",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "[\n  {\n    \"id\": 1,\n    \"name\": \"Anna de Groot\",\n    \"company\": \"Northwind Traders\",\n    \"email\": \"[EMAIL_1]\",\n    \"city\": \"Rotterdam\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Mark Visser\",\n    \"company\": \"Contoso BV\",\n    \"email\": \"[EMAIL_2]\",\n    \"city\": \"Den Haag\"\n  }\n]",
+    "rulesChanges": 2,
+    "fakeOutput": "[\n  {\n    \"id\": 1,\n    \"name\": \"[PERSON_1]\",\n    \"company\": \"Northwind Traders\",\n    \"email\": \"[EMAIL_1]\",\n    \"city\": \"Rotterdam\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"[PERSON_2]\",\n    \"company\": \"Contoso BV\",\n    \"email\": \"[EMAIL_2]\",\n    \"city\": \"Den Haag\"\n  }\n]",
+    "fakeChanges": 4
+  },
+  {
+    "id": "array-of-arrays",
+    "input": "{\"header\":[\"name\",\"email\",\"country\"],\"rows\":[[\"Hans Müller\",\"hans.mueller@example.de\",\"Germany\"],[\"Sophie Laurent\",\"sophie.laurent@example.com\",\"France\"],[[\"Joost Mulder\",\"+31 20 5550199\"],[\"Netherlands\"]]]}",
+    "pii": [
+      {
+        "text": "Hans Müller",
+        "type": "PERSON"
+      },
+      {
+        "text": "hans.mueller@example.de",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Sophie Laurent",
+        "type": "PERSON"
+      },
+      {
+        "text": "sophie.laurent@example.com",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Joost Mulder",
+        "type": "PERSON"
+      },
+      {
+        "text": "+31 20 5550199",
+        "type": "PHONE"
+      }
+    ],
+    "keep": [
+      "Germany",
+      "France",
+      "Netherlands"
+    ],
+    "fake": [
+      {
+        "text": "Hans Müller",
+        "type": "PERSON"
+      },
+      {
+        "text": "Sophie Laurent",
+        "type": "PERSON"
+      },
+      {
+        "text": "Joost Mulder",
+        "type": "PERSON"
+      },
+      {
+        "text": "Germany",
+        "type": "PERSON"
+      },
+      {
+        "text": "France",
+        "type": "PERSON"
+      },
+      {
+        "text": "Netherlands",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"header\": [\n    \"name\",\n    \"email\",\n    \"country\"\n  ],\n  \"rows\": [\n    [\n      \"Hans Müller\",\n      \"[EMAIL_1]\",\n      \"Germany\"\n    ],\n    [\n      \"Sophie Laurent\",\n      \"[EMAIL_2]\",\n      \"France\"\n    ],\n    [\n      [\n        \"Joost Mulder\",\n        \"[PHONE_1]\"\n      ],\n      [\n        \"Netherlands\"\n      ]\n    ]\n  ]\n}",
+    "rulesChanges": 3,
+    "fakeOutput": "{\n  \"header\": [\n    \"name\",\n    \"email\",\n    \"country\"\n  ],\n  \"rows\": [\n    [\n      \"[PERSON_1]\",\n      \"[EMAIL_1]\",\n      \"[PERSON_2]\"\n    ],\n    [\n      \"[PERSON_3]\",\n      \"[EMAIL_2]\",\n      \"[PERSON_4]\"\n    ],\n    [\n      [\n        \"[PERSON_5]\",\n        \"[PHONE_1]\"\n      ],\n      [\n        \"[PERSON_6]\"\n      ]\n    ]\n  ]\n}",
+    "fakeChanges": 9
+  },
+  {
+    "id": "numbers-as-numbers",
+    "input": "{\"customer\":{\"telephone\":612345678,\"mobile\":31655501234,\"postcode\":1012},\"total\":129.5,\"qty\":3,\"sku_id\":887766}",
+    "pii": [
+      {
+        "text": "612345678",
+        "type": "PHONE"
+      },
+      {
+        "text": "31655501234",
+        "type": "PHONE"
+      }
+    ],
+    "keep": [
+      "129.5",
+      "3",
+      "887766"
+    ],
+    "fake": [
+      {
+        "text": "129.5",
+        "type": "PERSON"
+      },
+      {
+        "text": "3",
+        "type": "PERSON"
+      },
+      {
+        "text": "887766",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"customer\": {\n    \"telephone\": 0,\n    \"mobile\": 0,\n    \"postcode\": 0\n  },\n  \"total\": 129.5,\n  \"qty\": 3,\n  \"sku_id\": 887766\n}",
+    "rulesChanges": 3,
+    "fakeOutput": "{\n  \"customer\": {\n    \"telephone\": 0,\n    \"mobile\": 0,\n    \"postcode\": 0\n  },\n  \"total\": 129.5,\n  \"qty\": 3,\n  \"sku_id\": 887766\n}",
+    "fakeChanges": 3
+  },
+  {
+    "id": "no-pii-catalog",
+    "input": "{\"products\":[{\"sku\":\"LAMP-001\",\"name\":\"Desk Lamp Aurora\",\"price\":39.95,\"url\":\"https://shop.example.com/desk-lamp-aurora\"},{\"sku\":\"MUG-RED\",\"name\":\"Red Coffee Mug\",\"price\":9.5,\"url\":\"https://shop.example.com/red-coffee-mug\"}],\"updated\":\"2024-06-01\",\"warehouse\":\"Eindhoven\"}",
+    "pii": [],
+    "keep": [
+      "LAMP-001",
+      "Desk Lamp Aurora",
+      "https://shop.example.com/desk-lamp-aurora",
+      "MUG-RED",
+      "Red Coffee Mug",
+      "2024-06-01",
+      "Eindhoven"
+    ],
+    "fake": [
+      {
+        "text": "LAMP-001",
+        "type": "PERSON"
+      },
+      {
+        "text": "Desk Lamp Aurora",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://shop.example.com/desk-lamp-aurora",
+        "type": "PERSON"
+      },
+      {
+        "text": "MUG-RED",
+        "type": "PERSON"
+      },
+      {
+        "text": "Red Coffee Mug",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-06-01",
+        "type": "PERSON"
+      },
+      {
+        "text": "Eindhoven",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"products\": [\n    {\n      \"sku\": \"LAMP-001\",\n      \"name\": \"Desk Lamp Aurora\",\n      \"price\": 39.95,\n      \"url\": \"https://shop.example.com/desk-lamp-aurora\"\n    },\n    {\n      \"sku\": \"MUG-RED\",\n      \"name\": \"Red Coffee Mug\",\n      \"price\": 9.5,\n      \"url\": \"https://shop.example.com/red-coffee-mug\"\n    }\n  ],\n  \"updated\": \"2024-06-01\",\n  \"warehouse\": \"Eindhoven\"\n}",
+    "rulesChanges": 0,
+    "fakeOutput": "{\n  \"products\": [\n    {\n      \"sku\": \"LAMP-001\",\n      \"name\": \"Desk Lamp Aurora\",\n      \"price\": 39.95,\n      \"url\": \"https://shop.example.com/desk-lamp-aurora\"\n    },\n    {\n      \"sku\": \"MUG-RED\",\n      \"name\": \"Red Coffee Mug\",\n      \"price\": 9.5,\n      \"url\": \"https://shop.example.com/red-coffee-mug\"\n    }\n  ],\n  \"updated\": \"2024-06-01\",\n  \"warehouse\": \"[PERSON_1]\"\n}",
+    "fakeChanges": 1
+  },
+  {
+    "id": "no-pii-config",
+    "input": "{\"env\":\"staging\",\"owner\":\"BigBridge\",\"cron\":{\"schedule\":\"0 3 * * *\",\"job\":\"reindex catalog\"},\"release\":{\"version\":\"v1.14.2\",\"date\":\"2024-09-12\",\"notes\":\"Fixed layout bug on the product page\"}}",
+    "pii": [],
+    "keep": [
+      "staging",
+      "BigBridge",
+      "0 3 * * *",
+      "reindex catalog",
+      "v1.14.2",
+      "2024-09-12",
+      "Fixed layout bug on the product page"
+    ],
+    "fake": [
+      {
+        "text": "staging",
+        "type": "PERSON"
+      },
+      {
+        "text": "BigBridge",
+        "type": "PERSON"
+      },
+      {
+        "text": "0 3 * * *",
+        "type": "PERSON"
+      },
+      {
+        "text": "reindex catalog",
+        "type": "PERSON"
+      },
+      {
+        "text": "v1.14.2",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-09-12",
+        "type": "PERSON"
+      },
+      {
+        "text": "Fixed layout bug on the product page",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"env\": \"staging\",\n  \"owner\": \"BigBridge\",\n  \"cron\": {\n    \"schedule\": \"0 3 * * *\",\n    \"job\": \"reindex catalog\"\n  },\n  \"release\": {\n    \"version\": \"v1.14.2\",\n    \"date\": \"2024-09-12\",\n    \"notes\": \"Fixed layout bug on the product page\"\n  }\n}",
+    "rulesChanges": 0,
+    "fakeOutput": "{\n  \"env\": \"staging\",\n  \"owner\": \"[PERSON_1]\",\n  \"cron\": {\n    \"schedule\": \"0 3 * * *\",\n    \"job\": \"reindex catalog\"\n  },\n  \"release\": {\n    \"version\": \"v1.14.2\",\n    \"date\": \"2024-09-12\",\n    \"notes\": \"Fixed layout bug on the product page\"\n  }\n}",
+    "fakeChanges": 1
+  },
+  {
+    "id": "gitlab-webhook",
+    "input": "{\"object_kind\":\"merge_request\",\"user\":{\"id\":7,\"name\":\"Daan Smit\",\"username\":\"dsmit\",\"email\":\"daan.smit@example.nl\"},\"project\":{\"id\":31,\"name\":\"webshop-theme\",\"web_url\":\"https://gitlab.example.com/acme/webshop-theme\"},\"object_attributes\":{\"iid\":118,\"title\":\"Fix checkout button color\",\"description\":\"Requested by Fleur Bosman after the customer call. Reviewer: Ruben Kok.\",\"last_commit\":{\"author\":{\"name\":\"Daan Smit\",\"email\":\"daan.smit@example.nl\"}}}}",
+    "pii": [
+      {
+        "text": "Daan Smit",
+        "type": "PERSON"
+      },
+      {
+        "text": "daan.smit@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Fleur Bosman",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ruben Kok",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "dsmit",
+      "merge_request",
+      "webshop-theme",
+      "https://gitlab.example.com/acme/webshop-theme",
+      "Fix checkout button color"
+    ],
+    "fake": [
+      {
+        "text": "Daan Smit",
+        "type": "PERSON"
+      },
+      {
+        "text": "Fleur Bosman",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ruben Kok",
+        "type": "PERSON"
+      },
+      {
+        "text": "dsmit",
+        "type": "PERSON"
+      },
+      {
+        "text": "merge_request",
+        "type": "PERSON"
+      },
+      {
+        "text": "webshop-theme",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://gitlab.example.com/acme/webshop-theme",
+        "type": "PERSON"
+      },
+      {
+        "text": "Fix checkout button color",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"object_kind\": \"merge_request\",\n  \"user\": {\n    \"id\": 7,\n    \"name\": \"[PERSON_1]\",\n    \"username\": \"dsmit\",\n    \"email\": \"[EMAIL_1]\"\n  },\n  \"project\": {\n    \"id\": 31,\n    \"name\": \"webshop-theme\",\n    \"web_url\": \"https://gitlab.example.com/acme/webshop-theme\"\n  },\n  \"object_attributes\": {\n    \"iid\": 118,\n    \"title\": \"Fix checkout button color\",\n    \"description\": \"Requested by Fleur Bosman after the customer call. Reviewer: Ruben Kok.\",\n    \"last_commit\": {\n      \"author\": {\n        \"name\": \"[PERSON_1]\",\n        \"email\": \"[EMAIL_1]\"\n      }\n    }\n  }\n}",
+    "rulesChanges": 4,
+    "fakeOutput": "{\n  \"object_kind\": \"merge_request\",\n  \"user\": {\n    \"id\": 7,\n    \"name\": \"[PERSON_1]\",\n    \"username\": \"dsmit\",\n    \"email\": \"[EMAIL_1]\"\n  },\n  \"project\": {\n    \"id\": 31,\n    \"name\": \"webshop-theme\",\n    \"web_url\": \"https://gitlab.example.com/acme/webshop-theme\"\n  },\n  \"object_attributes\": {\n    \"iid\": 118,\n    \"title\": \"Fix checkout button color\",\n    \"description\": \"Requested by [PERSON_2] after the customer call. Reviewer: [PERSON_3].\",\n    \"last_commit\": {\n      \"author\": {\n        \"name\": \"[PERSON_1]\",\n        \"email\": \"[EMAIL_1]\"\n      }\n    }\n  }\n}",
+    "fakeChanges": 5
+  },
+  {
+    "id": "asana-webhook",
+    "input": "{\"events\":[{\"action\":\"changed\",\"resource\":{\"gid\":\"1201234567890\",\"resource_type\":\"task\",\"name\":\"Update footer links\"},\"user\":{\"gid\":\"1209876543210\",\"name\":\"Eva Dekker\"},\"change\":{\"field\":\"assignee\",\"new_value\":{\"name\":\"Sander Peters\"}},\"comment\":\"Sander, can you check with Ingrid Maas whether the footer needs the new privacy text?\"}],\"project\":\"Website Relaunch Q3\"}",
+    "pii": [
+      {
+        "text": "Eva Dekker",
+        "type": "PERSON"
+      },
+      {
+        "text": "Sander Peters",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ingrid Maas",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "Update footer links",
+      "Website Relaunch Q3",
+      "assignee",
+      "1201234567890"
+    ],
+    "fake": [
+      {
+        "text": "Eva Dekker",
+        "type": "PERSON"
+      },
+      {
+        "text": "Sander Peters",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ingrid Maas",
+        "type": "PERSON"
+      },
+      {
+        "text": "Update footer links",
+        "type": "PERSON"
+      },
+      {
+        "text": "Website Relaunch Q3",
+        "type": "PERSON"
+      },
+      {
+        "text": "assignee",
+        "type": "PERSON"
+      },
+      {
+        "text": "1201234567890",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"events\": [\n    {\n      \"action\": \"changed\",\n      \"resource\": {\n        \"gid\": \"1201234567890\",\n        \"resource_type\": \"task\",\n        \"name\": \"Update footer links\"\n      },\n      \"user\": {\n        \"gid\": \"1209876543210\",\n        \"name\": \"[PERSON_1]\"\n      },\n      \"change\": {\n        \"field\": \"assignee\",\n        \"new_value\": {\n          \"name\": \"Sander Peters\"\n        }\n      },\n      \"comment\": \"Sander, can you check with Ingrid Maas whether the footer needs the new privacy text?\"\n    }\n  ],\n  \"project\": \"Website Relaunch Q3\"\n}",
+    "rulesChanges": 1,
+    "fakeOutput": "{\n  \"events\": [\n    {\n      \"action\": \"changed\",\n      \"resource\": {\n        \"gid\": \"1201234567890\",\n        \"resource_type\": \"task\",\n        \"name\": \"Update footer links\"\n      },\n      \"user\": {\n        \"gid\": \"1209876543210\",\n        \"name\": \"[PERSON_1]\"\n      },\n      \"change\": {\n        \"field\": \"assignee\",\n        \"new_value\": {\n          \"name\": \"[PERSON_2]\"\n        }\n      },\n      \"comment\": \"[PERSON_4], can you check with [PERSON_3] whether the footer needs the new privacy text?\"\n    }\n  ],\n  \"project\": \"Website Relaunch Q3\"\n}",
+    "fakeChanges": 3
+  },
+  {
+    "id": "quote-guest",
+    "input": "{\"quote_id\":5521,\"is_guest\":true,\"customer_ip\":\"198.51.100.23\",\"shipping\":{\"full_name\":\"Thomas Brouwer\",\"address_line\":\"Dorpsstraat 3\",\"zip\":\"5611 EM\",\"city\":\"Eindhoven\",\"full\":\"Thomas Brouwer, Dorpsstraat 3, 5611 EM Eindhoven\"},\"totals\":{\"subtotal\":80,\"shipping\":4.95,\"grand_total\":84.95},\"coupon\":\"SUMMER10\"}",
+    "pii": [
+      {
+        "text": "198.51.100.23",
+        "type": "IP"
+      },
+      {
+        "text": "Thomas Brouwer",
+        "type": "PERSON"
+      },
+      {
+        "text": "Dorpsstraat 3",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "5611 EM",
+        "type": "POSTCODE"
+      }
+    ],
+    "keep": [
+      "Eindhoven",
+      "SUMMER10",
+      "84.95",
+      "4.95"
+    ],
+    "fake": [
+      {
+        "text": "Thomas Brouwer",
+        "type": "PERSON"
+      },
+      {
+        "text": "Dorpsstraat 3",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "5611 EM",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Eindhoven",
+        "type": "PERSON"
+      },
+      {
+        "text": "SUMMER10",
+        "type": "PERSON"
+      },
+      {
+        "text": "84.95",
+        "type": "PERSON"
+      },
+      {
+        "text": "4.95",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"quote_id\": 5521,\n  \"is_guest\": true,\n  \"customer_ip\": \"[IP_1]\",\n  \"shipping\": {\n    \"full_name\": \"[PERSON_1]\",\n    \"address_line\": \"[ADDRESS_1]\",\n    \"zip\": \"[POSTCODE_1]\",\n    \"city\": \"Eindhoven\",\n    \"full\": \"[PERSON_1], [ADDRESS_1], [POSTCODE_1] Eindhoven\"\n  },\n  \"totals\": {\n    \"subtotal\": 80,\n    \"shipping\": 4.95,\n    \"grand_total\": 84.95\n  },\n  \"coupon\": \"SUMMER10\"\n}",
+    "rulesChanges": 5,
+    "fakeOutput": "{\n  \"quote_id\": 5521,\n  \"is_guest\": true,\n  \"customer_ip\": \"[IP_1]\",\n  \"shipping\": {\n    \"full_name\": \"[PERSON_1]\",\n    \"address_line\": \"[ADDRESS_1]\",\n    \"zip\": \"[POSTCODE_1]\",\n    \"city\": \"Eindhoven\",\n    \"full\": \"[PERSON_1], [ADDRESS_1], [POSTCODE_1] Eindhoven\"\n  },\n  \"totals\": {\n    \"subtotal\": 80,\n    \"shipping\": 4.95,\n    \"grand_total\": 84.95\n  },\n  \"coupon\": \"SUMMER10\"\n}",
+    "fakeChanges": 5
+  },
+  {
+    "id": "invoice",
+    "input": "{\"invoice_number\":\"INV-2024-0042\",\"date\":\"2024-07-15\",\"seller\":{\"company\":\"Tulip Trading BV\",\"vat\":\"NL123456789B01\",\"iban\":\"NL91ABNA0417164300\"},\"bill_to\":{\"contact\":\"Willem Jacobs\",\"address\":\"Marktplein 8, 6811 AB Arnhem\",\"email\":\"willem.jacobs@example.nl\"},\"lines\":[{\"description\":\"Hosting plan Business\",\"amount\":120},{\"description\":\"Domain example.nl renewal\",\"amount\":12.5}],\"total\":132.5,\"payment_reference\":\"Payment by Willem Jacobs on 2024-07-20\"}",
+    "pii": [
+      {
+        "text": "Willem Jacobs",
+        "type": "PERSON"
+      },
+      {
+        "text": "Marktplein 8",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "6811 AB",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "willem.jacobs@example.nl",
+        "type": "EMAIL"
+      }
+    ],
+    "keep": [
+      "INV-2024-0042",
+      "2024-07-15",
+      "Tulip Trading BV",
+      "Hosting plan Business",
+      "Domain example.nl renewal",
+      "Arnhem"
+    ],
+    "fake": [
+      {
+        "text": "Willem Jacobs",
+        "type": "PERSON"
+      },
+      {
+        "text": "Marktplein 8",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "6811 AB",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "INV-2024-0042",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-07-15",
+        "type": "PERSON"
+      },
+      {
+        "text": "Tulip Trading BV",
+        "type": "PERSON"
+      },
+      {
+        "text": "Hosting plan Business",
+        "type": "PERSON"
+      },
+      {
+        "text": "Domain example.nl renewal",
+        "type": "PERSON"
+      },
+      {
+        "text": "Arnhem",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"invoice_number\": \"INV-2024-0042\",\n  \"date\": \"2024-07-15\",\n  \"seller\": {\n    \"company\": \"Tulip Trading BV\",\n    \"vat\": \"NL123456789B01\",\n    \"iban\": \"[IBAN_1]\"\n  },\n  \"bill_to\": {\n    \"contact\": \"Willem Jacobs\",\n    \"address\": \"[ADDRESS_1]\",\n    \"email\": \"[EMAIL_1]\"\n  },\n  \"lines\": [\n    {\n      \"description\": \"Hosting plan Business\",\n      \"amount\": 120\n    },\n    {\n      \"description\": \"Domain example.nl renewal\",\n      \"amount\": 12.5\n    }\n  ],\n  \"total\": 132.5,\n  \"payment_reference\": \"Payment by Willem Jacobs on 2024-07-20\"\n}",
+    "rulesChanges": 3,
+    "fakeOutput": "{\n  \"invoice_number\": \"INV-2024-0042\",\n  \"date\": \"2024-07-15\",\n  \"seller\": {\n    \"company\": \"Tulip Trading BV\",\n    \"vat\": \"NL123456789B01\",\n    \"iban\": \"[IBAN_1]\"\n  },\n  \"bill_to\": {\n    \"contact\": \"[PERSON_1]\",\n    \"address\": \"[ADDRESS_1]\",\n    \"email\": \"[EMAIL_1]\"\n  },\n  \"lines\": [\n    {\n      \"description\": \"Hosting plan Business\",\n      \"amount\": 120\n    },\n    {\n      \"description\": \"Domain example.nl renewal\",\n      \"amount\": 12.5\n    }\n  ],\n  \"total\": 132.5,\n  \"payment_reference\": \"Payment by [PERSON_1] on 2024-07-20\"\n}",
+    "fakeChanges": 5
+  },
+  {
+    "id": "form-submission",
+    "input": "{\"form\":\"contact\",\"submitted_at\":\"2024-08-20T16:45:00Z\",\"fields\":{\"subject\":\"Question about delivery\",\"message\":\"Goedemiddag, ik ben Hanneke Vermeulen. Can you tell me when my order ships? Ruf mich gerne an unter +49 151 5550456.\",\"consent\":true,\"birthdate\":\"1990-11-23\"},\"referrer\":\"https://www.example.com/contact\"}",
+    "pii": [
+      {
+        "text": "Hanneke Vermeulen",
+        "type": "PERSON"
+      },
+      {
+        "text": "+49 151 5550456",
+        "type": "PHONE"
+      },
+      {
+        "text": "1990-11-23",
+        "type": "DOB"
+      }
+    ],
+    "keep": [
+      "contact",
+      "2024-08-20T16:45:00Z",
+      "Question about delivery",
+      "https://www.example.com/contact"
+    ],
+    "fake": [
+      {
+        "text": "Hanneke Vermeulen",
+        "type": "PERSON"
+      },
+      {
+        "text": "1990-11-23",
+        "type": "DOB"
+      },
+      {
+        "text": "contact",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-08-20T16:45:00Z",
+        "type": "PERSON"
+      },
+      {
+        "text": "Question about delivery",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://www.example.com/contact",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"form\": \"contact\",\n  \"submitted_at\": \"2024-08-20T16:45:00Z\",\n  \"fields\": {\n    \"subject\": \"Question about delivery\",\n    \"message\": \"Goedemiddag, ik ben Hanneke Vermeulen. Can you tell me when my order ships? Ruf mich gerne an unter [PHONE_1].\",\n    \"consent\": true,\n    \"birthdate\": \"[DOB_1]\"\n  },\n  \"referrer\": \"https://www.example.com/contact\"\n}",
+    "rulesChanges": 2,
+    "fakeOutput": "{\n  \"form\": \"contact\",\n  \"submitted_at\": \"2024-08-20T16:45:00Z\",\n  \"fields\": {\n    \"subject\": \"Question about delivery\",\n    \"message\": \"Goedemiddag, ik ben [PERSON_1]. Can you tell me when my order ships? Ruf mich gerne an unter [PHONE_1].\",\n    \"consent\": true,\n    \"birthdate\": \"[DOB_1]\"\n  },\n  \"referrer\": \"https://www.example.com/contact\"\n}",
+    "fakeChanges": 2
+  },
+  {
+    "id": "crm-note",
+    "input": "{\"account\":{\"name\":\"Fjord Logistics AS\",\"industry\":\"Transport\"},\"activities\":[{\"type\":\"call\",\"summary\":\"Spoke with Henrik Larsen about the renewal. Henrik prefers email.\"},{\"type\":\"meeting\",\"summary\":\"Met Henrik and his colleague Ingrid Solberg at the Oslo office.\"},{\"type\":\"note\",\"summary\":\"Ingrid wants a quote before 2024-12-01, budget around 15000 EUR.\"}]}",
+    "pii": [
+      {
+        "text": "Henrik Larsen",
+        "type": "PERSON"
+      },
+      {
+        "text": "Henrik",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ingrid Solberg",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ingrid",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "Fjord Logistics AS",
+      "Transport",
+      "Oslo",
+      "2024-12-01",
+      "15000 EUR"
+    ],
+    "fake": [
+      {
+        "text": "Henrik Larsen",
+        "type": "PERSON"
+      },
+      {
+        "text": "Henrik",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ingrid Solberg",
+        "type": "PERSON"
+      },
+      {
+        "text": "Ingrid",
+        "type": "PERSON"
+      },
+      {
+        "text": "Fjord Logistics AS",
+        "type": "PERSON"
+      },
+      {
+        "text": "Transport",
+        "type": "PERSON"
+      },
+      {
+        "text": "Oslo",
+        "type": "PERSON"
+      },
+      {
+        "text": "2024-12-01",
+        "type": "PERSON"
+      },
+      {
+        "text": "15000 EUR",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"account\": {\n    \"name\": \"Fjord Logistics AS\",\n    \"industry\": \"Transport\"\n  },\n  \"activities\": [\n    {\n      \"type\": \"call\",\n      \"summary\": \"Spoke with Henrik Larsen about the renewal. Henrik prefers email.\"\n    },\n    {\n      \"type\": \"meeting\",\n      \"summary\": \"Met Henrik and his colleague Ingrid Solberg at the Oslo office.\"\n    },\n    {\n      \"type\": \"note\",\n      \"summary\": \"Ingrid wants a quote before 2024-12-01, budget around 15000 EUR.\"\n    }\n  ]\n}",
+    "rulesChanges": 0,
+    "fakeOutput": "{\n  \"account\": {\n    \"name\": \"Fjord Logistics AS\",\n    \"industry\": \"[PERSON_1]\"\n  },\n  \"activities\": [\n    {\n      \"type\": \"call\",\n      \"summary\": \"Spoke with [PERSON_2] about the renewal. [PERSON_3] prefers email.\"\n    },\n    {\n      \"type\": \"meeting\",\n      \"summary\": \"Met [PERSON_3] and his colleague [PERSON_4] at the [PERSON_5] office.\"\n    },\n    {\n      \"type\": \"note\",\n      \"summary\": \"[PERSON_6] wants a quote before 2024-12-01, budget around 15000 EUR.\"\n    }\n  ]\n}",
+    "fakeChanges": 4
+  },
+  {
+    "id": "payment-card",
+    "input": "{\"payment\":{\"id\":\"pay_0001\",\"amount\":49.99,\"card\":{\"holder\":\"S. Hoekstra\",\"number\":\"4111 1111 1111 1111\",\"brand\":\"visa\",\"expiry\":\"12/2030\"},\"status\":\"captured\"},\"note\":\"Customer S. Hoekstra confirmed by phone.\"}",
+    "pii": [
+      {
+        "text": "S. Hoekstra",
+        "type": "PERSON"
+      },
+      {
+        "text": "4111 1111 1111 1111",
+        "type": "CARD"
+      }
+    ],
+    "keep": [
+      "pay_0001",
+      "visa",
+      "captured",
+      "49.99"
+    ],
+    "fake": [
+      {
+        "text": "S. Hoekstra",
+        "type": "PERSON"
+      },
+      {
+        "text": "pay_0001",
+        "type": "PERSON"
+      },
+      {
+        "text": "visa",
+        "type": "PERSON"
+      },
+      {
+        "text": "captured",
+        "type": "PERSON"
+      },
+      {
+        "text": "49.99",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"payment\": {\n    \"id\": \"pay_0001\",\n    \"amount\": 49.99,\n    \"card\": {\n      \"holder\": \"S. Hoekstra\",\n      \"number\": \"[CARD_1]\",\n      \"brand\": \"visa\",\n      \"expiry\": \"12/2030\"\n    },\n    \"status\": \"captured\"\n  },\n  \"note\": \"Customer S. Hoekstra confirmed by phone.\"\n}",
+    "rulesChanges": 1,
+    "fakeOutput": "{\n  \"payment\": {\n    \"id\": \"pay_0001\",\n    \"amount\": 49.99,\n    \"card\": {\n      \"holder\": \"[PERSON_1]\",\n      \"number\": \"[CARD_1]\",\n      \"brand\": \"visa\",\n      \"expiry\": \"12/2030\"\n    },\n    \"status\": \"captured\"\n  },\n  \"note\": \"Customer [PERSON_1] confirmed by phone.\"\n}",
+    "fakeChanges": 3
+  },
+  {
+    "id": "mixed-address-strings",
+    "input": "{\"stores\":[{\"label\":\"HQ\",\"value\":\"Prinsengracht 263, 1016 GV Amsterdam\"},{\"label\":\"Depot\",\"value\":\"Industrieweg 10, 4004 JK Tiel\"},{\"label\":\"Pickup city\",\"value\":\"Zwolle\"}],\"home_of_customer\":\"Hauptstraße 21, 50667 Köln\"}",
+    "pii": [
+      {
+        "text": "Prinsengracht 263",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "1016 GV",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Industrieweg 10",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "4004 JK",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Hauptstraße 21",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "50667",
+        "type": "POSTCODE"
+      }
+    ],
+    "keep": [
+      "Zwolle",
+      "HQ",
+      "Depot"
+    ],
+    "fake": [
+      {
+        "text": "Prinsengracht 263",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "1016 GV",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Industrieweg 10",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "4004 JK",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Hauptstraße 21",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "50667",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Zwolle",
+        "type": "PERSON"
+      },
+      {
+        "text": "HQ",
+        "type": "PERSON"
+      },
+      {
+        "text": "Depot",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"stores\": [\n    {\n      \"label\": \"HQ\",\n      \"value\": \"[ADDRESS_1], [POSTCODE_1] Amsterdam\"\n    },\n    {\n      \"label\": \"Depot\",\n      \"value\": \"[ADDRESS_2], [POSTCODE_2] Tiel\"\n    },\n    {\n      \"label\": \"Pickup city\",\n      \"value\": \"Zwolle\"\n    }\n  ],\n  \"home_of_customer\": \"[ADDRESS_3], 50667 Köln\"\n}",
+    "rulesChanges": 3,
+    "fakeOutput": "{\n  \"stores\": [\n    {\n      \"label\": \"HQ\",\n      \"value\": \"[ADDRESS_1], [POSTCODE_1] Amsterdam\"\n    },\n    {\n      \"label\": \"Depot\",\n      \"value\": \"[ADDRESS_2], [POSTCODE_2] Tiel\"\n    },\n    {\n      \"label\": \"Pickup city\",\n      \"value\": \"[PERSON_1]\"\n    }\n  ],\n  \"home_of_customer\": \"[ADDRESS_3], [POSTCODE_3] Köln\"\n}",
+    "fakeChanges": 4
+  },
+  {
+    "id": "delivery-address-block",
+    "input": "{\"delivery\":{\"id\":\"dlv_88213\",\"tracking_url\":\"https://track.routelogic.io/tr/3EBFY1OeGRk6\",\"recipient\":{\"name\":\"Thijs Verbeek\",\"phone_number\":\"+31 6 55501987\",\"email\":\"thijs@example.nl\"},\"address\":{\"street\":\"Schutterweg 81\",\"house_number\":\"\",\"house_number_extension\":\"\",\"postal_code\":\"1033XW\",\"city\":\"Amsterdam\",\"latitude\":52.418155,\"longitude\":4.8774938,\"address_line\":\"Schutterweg 81\",\"full_address_line\":\"Schutterweg 81, 1033XW, Amsterdam\",\"country\":{\"iso_code\":\"NL\",\"description\":\"Nederland\"}},\"driver_note\":\"Thijs is niet thuis, afgeven bij de buren op nummer 83.\"}}",
+    "pii": [
+      {
+        "text": "Thijs Verbeek",
+        "type": "PERSON"
+      },
+      {
+        "text": "Thijs",
+        "type": "PERSON"
+      },
+      {
+        "text": "+31 6 55501987",
+        "type": "PHONE"
+      },
+      {
+        "text": "thijs@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Schutterweg 81",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "1033XW",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "52.418155",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "4.8774938",
+        "type": "ADDRESS"
+      }
+    ],
+    "keep": [
+      "dlv_88213",
+      "https://track.routelogic.io/tr/3EBFY1OeGRk6",
+      "Amsterdam",
+      "NL",
+      "Nederland"
+    ],
+    "fake": [
+      {
+        "text": "Thijs Verbeek",
+        "type": "PERSON"
+      },
+      {
+        "text": "Thijs",
+        "type": "PERSON"
+      },
+      {
+        "text": "Schutterweg 81",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "1033XW",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "52.418155",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "4.8774938",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "dlv_88213",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://track.routelogic.io/tr/3EBFY1OeGRk6",
+        "type": "PERSON"
+      },
+      {
+        "text": "Amsterdam",
+        "type": "PERSON"
+      },
+      {
+        "text": "NL",
+        "type": "PERSON"
+      },
+      {
+        "text": "Nederland",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"delivery\": {\n    \"id\": \"dlv_88213\",\n    \"tracking_url\": \"https://track.routelogic.io/tr/3EBFY1OeGRk6\",\n    \"recipient\": {\n      \"name\": \"[PERSON_1]\",\n      \"phone_number\": \"[PHONE_1]\",\n      \"email\": \"[EMAIL_1]\"\n    },\n    \"address\": {\n      \"street\": \"[ADDRESS_1]\",\n      \"house_number\": \"\",\n      \"house_number_extension\": \"\",\n      \"postal_code\": \"[POSTCODE_1]\",\n      \"city\": \"Amsterdam\",\n      \"latitude\": 0,\n      \"longitude\": 0,\n      \"address_line\": \"[ADDRESS_1]\",\n      \"full_address_line\": \"[ADDRESS_2]\",\n      \"country\": {\n        \"iso_code\": \"NL\",\n        \"description\": \"Nederland\"\n      }\n    },\n    \"driver_note\": \"[PERSON_2] is niet thuis, afgeven bij de buren op nummer 83.\"\n  }\n}",
+    "rulesChanges": 10,
+    "fakeOutput": "{\n  \"delivery\": {\n    \"id\": \"dlv_88213\",\n    \"tracking_url\": \"https://track.routelogic.io/tr/3EBFY1OeGRk6\",\n    \"recipient\": {\n      \"name\": \"[PERSON_1]\",\n      \"phone_number\": \"[PHONE_1]\",\n      \"email\": \"[EMAIL_1]\"\n    },\n    \"address\": {\n      \"street\": \"[ADDRESS_1]\",\n      \"house_number\": \"\",\n      \"house_number_extension\": \"\",\n      \"postal_code\": \"[POSTCODE_1]\",\n      \"city\": \"Amsterdam\",\n      \"latitude\": 0,\n      \"longitude\": 0,\n      \"address_line\": \"[ADDRESS_1]\",\n      \"full_address_line\": \"[ADDRESS_2]\",\n      \"country\": {\n        \"iso_code\": \"[PERSON_3]\",\n        \"description\": \"[PERSON_4]\"\n      }\n    },\n    \"driver_note\": \"[PERSON_2] is niet thuis, afgeven bij de buren op nummer 83.\"\n  }\n}",
+    "fakeChanges": 12
+  },
+  {
+    "id": "key-variants",
+    "input": "{\"contacts\":[{\"first_name\":\"Noah\",\"last_name\":\"Peeters\",\"phone_number\":\"0612340001\",\"e_mail\":\"noah@example.be\"},{\"firstName\":\"Lotte\",\"lastName\":\"Hendriks\",\"mobilePhone\":\"06-12340002\",\"emailAddress\":\"lotte@example.nl\"},{\"voornaam\":\"Bram\",\"tussenvoegsel\":\"van\",\"achternaam\":\"Leeuwen\",\"telefoonnummer\":\"010 1234003\",\"straatnaam\":\"Lindenlaan\",\"huisnummer\":\"7\"},{\"Vorname\":\"Jonas\",\"Nachname\":\"Krüger\",\"Telefonnummer\":\"+49 30 1234004\",\"Straße\":\"Gartenweg 3\",\"PLZ\":\"10115\"},{\"FullName\":\"Mila Jacobs\",\"Phone\":\"+32 470 12 34 05\",\"ZipCode\":\"2000\",\"Customer_ID\":\"C-000451\"}],\"customer\":{\"id\":98231,\"name\":\"Femke Mulder\",\"group\":\"Retail\"}}",
+    "pii": [
+      {
+        "text": "Noah",
+        "type": "PERSON"
+      },
+      {
+        "text": "Peeters",
+        "type": "PERSON"
+      },
+      {
+        "text": "0612340001",
+        "type": "PHONE"
+      },
+      {
+        "text": "noah@example.be",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Lotte",
+        "type": "PERSON"
+      },
+      {
+        "text": "Hendriks",
+        "type": "PERSON"
+      },
+      {
+        "text": "06-12340002",
+        "type": "PHONE"
+      },
+      {
+        "text": "lotte@example.nl",
+        "type": "EMAIL"
+      },
+      {
+        "text": "Bram",
+        "type": "PERSON"
+      },
+      {
+        "text": "Leeuwen",
+        "type": "PERSON"
+      },
+      {
+        "text": "010 1234003",
+        "type": "PHONE"
+      },
+      {
+        "text": "Lindenlaan",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "Jonas",
+        "type": "PERSON"
+      },
+      {
+        "text": "Krüger",
+        "type": "PERSON"
+      },
+      {
+        "text": "+49 30 1234004",
+        "type": "PHONE"
+      },
+      {
+        "text": "Gartenweg 3",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "10115",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Mila Jacobs",
+        "type": "PERSON"
+      },
+      {
+        "text": "+32 470 12 34 05",
+        "type": "PHONE"
+      },
+      {
+        "text": "2000",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Femke Mulder",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "C-000451",
+      "98231",
+      "Retail"
+    ],
+    "fake": [
+      {
+        "text": "Noah",
+        "type": "PERSON"
+      },
+      {
+        "text": "Peeters",
+        "type": "PERSON"
+      },
+      {
+        "text": "Lotte",
+        "type": "PERSON"
+      },
+      {
+        "text": "Hendriks",
+        "type": "PERSON"
+      },
+      {
+        "text": "Bram",
+        "type": "PERSON"
+      },
+      {
+        "text": "Leeuwen",
+        "type": "PERSON"
+      },
+      {
+        "text": "Lindenlaan",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "Jonas",
+        "type": "PERSON"
+      },
+      {
+        "text": "Krüger",
+        "type": "PERSON"
+      },
+      {
+        "text": "Gartenweg 3",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "10115",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Mila Jacobs",
+        "type": "PERSON"
+      },
+      {
+        "text": "2000",
+        "type": "POSTCODE"
+      },
+      {
+        "text": "Femke Mulder",
+        "type": "PERSON"
+      },
+      {
+        "text": "C-000451",
+        "type": "PERSON"
+      },
+      {
+        "text": "98231",
+        "type": "PERSON"
+      },
+      {
+        "text": "Retail",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"contacts\": [\n    {\n      \"first_name\": \"[PERSON_1]\",\n      \"last_name\": \"[PERSON_2]\",\n      \"phone_number\": \"[PHONE_1]\",\n      \"e_mail\": \"[EMAIL_1]\"\n    },\n    {\n      \"firstName\": \"[PERSON_3]\",\n      \"lastName\": \"[PERSON_4]\",\n      \"mobilePhone\": \"[PHONE_2]\",\n      \"emailAddress\": \"[EMAIL_2]\"\n    },\n    {\n      \"voornaam\": \"[PERSON_5]\",\n      \"tussenvoegsel\": \"[PERSON_6]\",\n      \"achternaam\": \"[PERSON_7]\",\n      \"telefoonnummer\": \"[PHONE_3]\",\n      \"straatnaam\": \"[ADDRESS_1]\",\n      \"huisnummer\": \"[ADDRESS_2]\"\n    },\n    {\n      \"Vorname\": \"[PERSON_8]\",\n      \"Nachname\": \"[PERSON_9]\",\n      \"Telefonnummer\": \"[PHONE_4]\",\n      \"Straße\": \"[ADDRESS_3]\",\n      \"PLZ\": \"[POSTCODE_1]\"\n    },\n    {\n      \"FullName\": \"[PERSON_10]\",\n      \"Phone\": \"[PHONE_5]\",\n      \"ZipCode\": \"[POSTCODE_2]\",\n      \"Customer_ID\": \"C-000451\"\n    }\n  ],\n  \"customer\": {\n    \"id\": 98231,\n    \"name\": \"[PERSON_11]\",\n    \"group\": \"Retail\"\n  }\n}",
+    "rulesChanges": 23,
+    "fakeOutput": "{\n  \"contacts\": [\n    {\n      \"first_name\": \"[PERSON_1]\",\n      \"last_name\": \"[PERSON_2]\",\n      \"phone_number\": \"[PHONE_1]\",\n      \"e_mail\": \"[EMAIL_1]\"\n    },\n    {\n      \"firstName\": \"[PERSON_3]\",\n      \"lastName\": \"[PERSON_4]\",\n      \"mobilePhone\": \"[PHONE_2]\",\n      \"emailAddress\": \"[EMAIL_2]\"\n    },\n    {\n      \"voornaam\": \"[PERSON_5]\",\n      \"tussenvoegsel\": \"[PERSON_6]\",\n      \"achternaam\": \"[PERSON_7]\",\n      \"telefoonnummer\": \"[PHONE_3]\",\n      \"straatnaam\": \"[ADDRESS_1]\",\n      \"huisnummer\": \"[ADDRESS_2]\"\n    },\n    {\n      \"Vorname\": \"[PERSON_8]\",\n      \"Nachname\": \"[PERSON_9]\",\n      \"Telefonnummer\": \"[PHONE_4]\",\n      \"Straße\": \"[ADDRESS_3]\",\n      \"PLZ\": \"[POSTCODE_1]\"\n    },\n    {\n      \"FullName\": \"[PERSON_10]\",\n      \"Phone\": \"[PHONE_5]\",\n      \"ZipCode\": \"[POSTCODE_2]\",\n      \"Customer_ID\": \"C-000451\"\n    }\n  ],\n  \"customer\": {\n    \"id\": 98231,\n    \"name\": \"[PERSON_11]\",\n    \"group\": \"[PERSON_12]\"\n  }\n}",
+    "fakeChanges": 24
+  },
+  {
+    "id": "ids-preserved",
+    "input": "{\"shipment\":{\"id\":\"shp_9fK2LmQ81\",\"barcode\":\"3SABCD123456789\",\"tracking_code\":\"JVGL0612345678\",\"tracking_url\":\"https://track.routelogic.io/tr/3EBFY1OeGRk6\",\"label_url\":\"https://cdn.example.com/labels/1201234567890.pdf\",\"external_ref\":\"4111111111111111\",\"uuid\":\"8f14e45f-ceea-467a-9575-1b2a3c4d5e6f\",\"order_increment_id\":\"000004521\",\"asana_gid\":\"1209876543210123\",\"api_token\":\"tok_live_51HxQe2Lk9A\"},\"message\":\"Shipment shp_9fK2LmQ81 for Karin Wolters handed to carrier, ref 3SABCD123456789.\"}",
+    "pii": [
+      {
+        "text": "Karin Wolters",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "shp_9fK2LmQ81",
+      "3SABCD123456789",
+      "JVGL0612345678",
+      "https://track.routelogic.io/tr/3EBFY1OeGRk6",
+      "https://cdn.example.com/labels/1201234567890.pdf",
+      "4111111111111111",
+      "8f14e45f-ceea-467a-9575-1b2a3c4d5e6f",
+      "000004521",
+      "1209876543210123",
+      "tok_live_51HxQe2Lk9A"
+    ],
+    "fake": [
+      {
+        "text": "Karin Wolters",
+        "type": "PERSON"
+      },
+      {
+        "text": "shp_9fK2LmQ81",
+        "type": "PERSON"
+      },
+      {
+        "text": "3SABCD123456789",
+        "type": "PERSON"
+      },
+      {
+        "text": "JVGL0612345678",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://track.routelogic.io/tr/3EBFY1OeGRk6",
+        "type": "PERSON"
+      },
+      {
+        "text": "https://cdn.example.com/labels/1201234567890.pdf",
+        "type": "PERSON"
+      },
+      {
+        "text": "4111111111111111",
+        "type": "PERSON"
+      },
+      {
+        "text": "8f14e45f-ceea-467a-9575-1b2a3c4d5e6f",
+        "type": "PERSON"
+      },
+      {
+        "text": "000004521",
+        "type": "PERSON"
+      },
+      {
+        "text": "1209876543210123",
+        "type": "PERSON"
+      },
+      {
+        "text": "tok_live_51HxQe2Lk9A",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"shipment\": {\n    \"id\": \"shp_9fK2LmQ81\",\n    \"barcode\": \"3SABCD123456789\",\n    \"tracking_code\": \"JVGL0612345678\",\n    \"tracking_url\": \"https://track.routelogic.io/tr/3EBFY1OeGRk6\",\n    \"label_url\": \"https://cdn.example.com/labels/1201234567890.pdf\",\n    \"external_ref\": \"4111111111111111\",\n    \"uuid\": \"8f14e45f-ceea-467a-9575-1b2a3c4d5e6f\",\n    \"order_increment_id\": \"000004521\",\n    \"asana_gid\": \"1209876543210123\",\n    \"api_token\": \"tok_live_51HxQe2Lk9A\"\n  },\n  \"message\": \"Shipment shp_9fK2LmQ81 for Karin Wolters handed to carrier, ref 3SABCD123456789.\"\n}",
+    "rulesChanges": 0,
+    "fakeOutput": "{\n  \"shipment\": {\n    \"id\": \"shp_9fK2LmQ81\",\n    \"barcode\": \"3SABCD123456789\",\n    \"tracking_code\": \"JVGL0612345678\",\n    \"tracking_url\": \"https://track.routelogic.io/tr/3EBFY1OeGRk6\",\n    \"label_url\": \"https://cdn.example.com/labels/1201234567890.pdf\",\n    \"external_ref\": \"4111111111111111\",\n    \"uuid\": \"8f14e45f-ceea-467a-9575-1b2a3c4d5e6f\",\n    \"order_increment_id\": \"000004521\",\n    \"asana_gid\": \"1209876543210123\",\n    \"api_token\": \"tok_live_51HxQe2Lk9A\"\n  },\n  \"message\": \"Shipment shp_9fK2LmQ81 for [PERSON_1] handed to carrier, ref 3SABCD123456789.\"\n}",
+    "fakeChanges": 1
+  },
+  {
+    "id": "name-key-context",
+    "input": "{\"assignee\":{\"gid\":\"1200001\",\"name\":\"Joost Brouwer\"},\"project\":{\"gid\":\"1200002\",\"name\":\"Spring Campaign\"},\"items\":[{\"name\":\"Linen Shirt\",\"sku\":\"LIN-S\"}],\"store\":{\"name\":\"Main Website Store\",\"code\":\"default\"},\"followers\":[{\"name\":\"Iris Dijkstra\"},{\"name\":\"Tim Prins\"}]}",
+    "pii": [
+      {
+        "text": "Joost Brouwer",
+        "type": "PERSON"
+      },
+      {
+        "text": "Iris Dijkstra",
+        "type": "PERSON"
+      },
+      {
+        "text": "Tim Prins",
+        "type": "PERSON"
+      }
+    ],
+    "keep": [
+      "Spring Campaign",
+      "Linen Shirt",
+      "LIN-S",
+      "Main Website Store",
+      "1200001"
+    ],
+    "fake": [
+      {
+        "text": "Joost Brouwer",
+        "type": "PERSON"
+      },
+      {
+        "text": "Iris Dijkstra",
+        "type": "PERSON"
+      },
+      {
+        "text": "Tim Prins",
+        "type": "PERSON"
+      },
+      {
+        "text": "Spring Campaign",
+        "type": "PERSON"
+      },
+      {
+        "text": "Linen Shirt",
+        "type": "PERSON"
+      },
+      {
+        "text": "LIN-S",
+        "type": "PERSON"
+      },
+      {
+        "text": "Main Website Store",
+        "type": "PERSON"
+      },
+      {
+        "text": "1200001",
+        "type": "PERSON"
+      },
+      {
+        "text": "Utrecht",
+        "type": "ADDRESS"
+      },
+      {
+        "text": "3EBFY1OeGRk6",
+        "type": "PERSON"
+      }
+    ],
+    "rulesOutput": "{\n  \"assignee\": {\n    \"gid\": \"1200001\",\n    \"name\": \"[PERSON_1]\"\n  },\n  \"project\": {\n    \"gid\": \"1200002\",\n    \"name\": \"Spring Campaign\"\n  },\n  \"items\": [\n    {\n      \"name\": \"Linen Shirt\",\n      \"sku\": \"LIN-S\"\n    }\n  ],\n  \"store\": {\n    \"name\": \"Main Website Store\",\n    \"code\": \"default\"\n  },\n  \"followers\": [\n    {\n      \"name\": \"[PERSON_2]\"\n    },\n    {\n      \"name\": \"[PERSON_3]\"\n    }\n  ]\n}",
+    "rulesChanges": 3,
+    "fakeOutput": "{\n  \"assignee\": {\n    \"gid\": \"1200001\",\n    \"name\": \"[PERSON_1]\"\n  },\n  \"project\": {\n    \"gid\": \"1200002\",\n    \"name\": \"Spring Campaign\"\n  },\n  \"items\": [\n    {\n      \"name\": \"Linen Shirt\",\n      \"sku\": \"LIN-S\"\n    }\n  ],\n  \"store\": {\n    \"name\": \"Main Website Store\",\n    \"code\": \"default\"\n  },\n  \"followers\": [\n    {\n      \"name\": \"[PERSON_2]\"\n    },\n    {\n      \"name\": \"[PERSON_3]\"\n    }\n  ]\n}",
+    "fakeChanges": 3
+  }
+]

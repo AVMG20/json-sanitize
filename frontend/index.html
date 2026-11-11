@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="color-scheme" content="dark light"/>
+    <title>JSON Sanitizer</title>
+</head>
+<body>
+<div id="app">
+    <header class="titlebar">
+        <div class="tabs" role="tablist">
+            <button class="tab active" role="tab" data-tab="json">JSON</button>
+            <button class="tab" role="tab" data-tab="changes">Changes <span class="badge" id="badge" hidden>0</span></button>
+        </div>
+        <div class="spacer"></div>
+        <div class="model" id="model" title="">
+            <span class="dot" id="model-dot"></span>
+            <span id="model-text">Connecting…</span>
+        </div>
+        <button class="btn" id="model-btn" hidden></button>
+        <div class="progress" id="progress"></div>
+    </header>
+
+    <main>
+        <section class="panel" id="panel-json">
+            <div class="editor" id="editor">
+                <pre class="layer hl" id="hl" aria-hidden="true"></pre>
+                <textarea class="layer ta" id="ta" spellcheck="false" autocomplete="off" autocapitalize="off"
+                          autocorrect="off" wrap="off" placeholder="Paste JSON here…"></textarea>
+            </div>
+            <footer class="footer">
+                <div class="hint" id="hint">Paste JSON to start</div>
+                <div class="summary" id="summary" hidden></div>
+                <div class="spacer"></div>
+                <button class="btn" id="revert" hidden>Revert</button>
+                <button class="btn" id="copy"><span class="ico" id="copy-ico">⧉</span><span id="copy-text">Copy</span></button>
+                <button class="btn primary" id="go"><span class="spin" hidden></span><span id="go-text">Sanitize</span><kbd>⌘↵</kbd></button>
+            </footer>
+        </section>
+
+        <section class="panel" id="panel-changes" hidden>
+            <div class="chips" id="chips"></div>
+            <div class="list" id="list"></div>
+        </section>
+    </main>
+</div>
+<script src="./src/main.js" type="module"></script>
+</body>
+</html>

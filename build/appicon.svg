@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#232326"/>
+      <stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+  <!-- macOS icon grid: 824×824 squircle-ish tile centred on the 1024 canvas -->
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)"/>
+  <rect x="101.5" y="101.5" width="821" height="821" rx="184.5" fill="none" stroke="url(#rim)" stroke-width="3"/>
+  <!-- hexagon -->
+  <polygon points="512,252 737.2,382 737.2,642 512,772 286.8,642 286.8,382"
+           fill="none" stroke="#f5f5f5" stroke-width="40" stroke-linejoin="round"/>
+  <!-- { } -->
+  <g fill="none" stroke="#f5f5f5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M466 400 C430 400 422 414 422 444 L422 482 C422 502 412 512 390 512 C412 512 422 522 422 542 L422 580 C422 610 430 624 466 624"/>
+    <path d="M558 400 C594 400 602 414 602 444 L602 482 C602 502 612 512 634 512 C612 512 602 522 602 542 L602 580 C602 610 594 624 558 624"/>
+  </g>
+</svg>
