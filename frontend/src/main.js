@@ -73,7 +73,7 @@ ta.addEventListener('paste', () => { setTimeout(warmUp, 0); });
 
 function warmUp() {
   const s = state.status;
-  if (!s || s.state !== 'unloaded' || Date.now() - state.lastWarm < 30000) return;
+  if (!s || s.state !== 'unloaded' || Date.now() - state.lastWarm < 5000) return;
   state.lastWarm = Date.now();
   Load().catch(() => {}).then(pollStatus);
 }

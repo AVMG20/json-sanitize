@@ -47,13 +47,13 @@ personal data and leaves 98% of the other values untouched.
 
 ## Model lifecycle
 
-The model loads when you paste, click **Load**, or sanitize. Ollama unloads it after 5 idle minutes;
+The model loads when you paste, click **Load**, or sanitize. Ollama unloads it 30 seconds after the last use;
 the header shows its state, RAM use and countdown. Quitting the app unloads it immediately.
 
 | env            | default                  |
 |----------------|--------------------------|
 | `MODEL`        | `qwen3:4b`               |
-| `IDLE_MINUTES` | `5`                      |
+| `IDLE_SECONDS` | `30`                     |
 | `OLLAMA_HOST`  | `http://127.0.0.1:11434` |
 
 ## Layout

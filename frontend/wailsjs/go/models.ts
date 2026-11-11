@@ -6,7 +6,7 @@ export namespace main {
 	    error: string;
 	    sizeBytes: number;
 	    expiresAt: string;
-	    idleMinutes: number;
+	    idleSeconds: number;
 	
 	    static createFrom(source: any = {}) {
 	        return new ModelStatus(source);
@@ -19,7 +19,7 @@ export namespace main {
 	        this.error = source["error"];
 	        this.sizeBytes = source["sizeBytes"];
 	        this.expiresAt = source["expiresAt"];
-	        this.idleMinutes = source["idleMinutes"];
+	        this.idleSeconds = source["idleSeconds"];
 	    }
 	}
 	export class SanitizeResponse {

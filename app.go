@@ -17,7 +17,7 @@ import (
 type App struct {
 	ctx         context.Context
 	llm         *ollama.Client
-	idleMinutes int
+	idleSeconds int
 
 	mu        sync.Mutex
 	ready     bool   // Ollama reachable and model pulled
@@ -27,13 +27,13 @@ type App struct {
 }
 
 func NewApp() *App {
-	idle := 5
-	if v, err := strconv.Atoi(os.Getenv("IDLE_MINUTES")); err == nil && v > 0 {
+	idle := 30 // seconds after the last use before Ollama frees the model's RAM
+	if v, err := strconv.Atoi(os.Getenv("IDLE_SECONDS")); err == nil && v > 0 {
 		idle = v
 	}
 	host := envOr("OLLAMA_HOST", "http://127.0.0.1:11434")
 	model := envOr("MODEL", "qwen3:4b")
-	return &App{llm: ollama.New(host, model, fmt.Sprintf("%dm", idle)), idleMinutes: idle}
+	return &App{llm: ollama.New(host, model, fmt.Sprintf("%ds", idle)), idleSeconds: idle}
 }
 
 func envOr(k, def string) string {
@@ -90,7 +90,7 @@ type ModelStatus struct {
 	Error       string `json:"error"`
 	SizeBytes   int64  `json:"sizeBytes"`
 	ExpiresAt   string `json:"expiresAt"`
-	IdleMinutes int    `json:"idleMinutes"`
+	IdleSeconds int    `json:"idleSeconds"`
 }
 
 func (a *App) Status() ModelStatus {
@@ -98,7 +98,7 @@ func (a *App) Status() ModelStatus {
 	ready, setupErr, loading := a.ready, a.setupErr, a.loading
 	a.mu.Unlock()
 
-	s := ModelStatus{Model: a.llm.Model, IdleMinutes: a.idleMinutes, Error: setupErr}
+	s := ModelStatus{Model: a.llm.Model, IdleSeconds: a.idleSeconds, Error: setupErr}
 	switch {
 	case !ready && setupErr != "":
 		s.State = "unavailable"
